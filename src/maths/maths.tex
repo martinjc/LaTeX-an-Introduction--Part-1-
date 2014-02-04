@@ -1,0 +1,569 @@
+\documentclass[mathserif]{beamer}
+
+\usepackage{listings}
+\usepackage{showexpl}
+\usepackage{xfrac}
+\usepackage{dtklogos}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[T1]{fontenc}
+
+%\usepackage{handoutwithnotes}
+
+%\pgfpagesuselayout{3 on 1 with notes}[a4paper,border shrink=5mm]
+
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{3}{border code=\pgfusepath{stroke}}
+
+
+\lstdefinestyle{latexsty}{
+	language={[LaTeX]TeX},
+    basicstyle=\small\ttfamily,
+    breaklines=true,
+    breakindent=0pt, 
+    backgroundcolor=\color{lightgray},
+    numbers=none, numberstyle=\tiny, stepnumber=1, numbersep=5pt,
+    commentstyle=\color{red},
+    showstringspaces=false,
+    keywordstyle=\color{blue}\bfseries,
+    morekeywords={align,begin},
+    tabsize=2,
+    pos=b
+}
+
+\usetheme{default}
+\useoutertheme{infolines}
+\usecolortheme[RGB={166,5,20}]{structure}
+%\setbeamertemplate{items}[circle]
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamertemplate{navigation symbols}{}
+
+
+\title{Introduction to \LaTeX\ - Part 1}
+\subtitle{University Graduate College Training Course}
+\author[Martin Chorley]{Dr Martin Chorley}
+\institute[COMSC]{School of Computer Science \& Informatics, Cardiff University}
+\date[10/02/14]{February 10th, 2014}
+
+
+\begin{document}
+
+	
+
+%--------------- slide -------------------
+\begin{frame}{Maths - Introduction}
+
+\vfill
+Typesetting maths is one of the major strengths of \LaTeX, and one of the main reasons for its popularity within the scientific community.
+\vfill
+The \texttt{amsmath} package is frequently used to add to the built in maths typesetting capabilities of \LaTeX -- all the discussion here will assume it has been used.
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}{Maths Environments}
+
+\vfill
+In order to include maths within our documents, we must tell \LaTeX\ that we intend to place maths within our text. 
+\vfill
+There are special environments specifically for typesetting maths. For most, there are also shorthands for beginning and ending these environments.
+\vfill
+Which environment we use depends on whether we want to display the maths inline (so within our text), or display it as a block separate to the text. 
+\vfill
+If we display maths as a separate block, we can have the block numbered or non-numbered, depending on whether we want to refer to it with the text.
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Inline Maths}
+\vfill
+To display maths inline with our text we use the \texttt{math} environment:
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		Inline maths is displayed within our text, so we can add equations (such as \begin{math} a^3 + 6b \end{math}) as part of our sentences.
+	\end{LTXexample}
+\vfill
+Typing \texttt{{\textbackslash}begin\{math\} \ldots {\textbackslash}end\{math\}} could become tedious if there are a lot of separate math equations to display. Fortunately there are two shorthands for this environment: \texttt{{\textbackslash}( \ldots {\textbackslash})} and \texttt{\$ \ldots \$}.
+\vfill
+\end{frame}
+
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Displayed Equations (without numbering)}
+\vfill
+To display maths separately from our text (without numbering the equation) we use the \texttt{displaymath} environment, or the \texttt{equation*} environment:
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		Display maths is displayed separately from the text, so we can add distinct equation blocks.
+		\begin{displaymath}
+		    a^3 + 6b
+		\end{displaymath}
+	\end{LTXexample}
+\vfill
+Again, there are shorthands for starting and ending the \texttt{displaymath} environment: \texttt{{\textbackslash}[ \ldots {\textbackslash}]} and \texttt{\$\$ \ldots \$\$}.
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Displayed Equations (with numbering)}
+\vfill
+To display maths separately from our text while numbering the equation we use the \texttt{equation} environment:
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		Display maths is displayed separately from the text, so we can add distinct equation blocks.
+		\begin{equation}
+		    a^3 + 6b
+		\end{equation}
+	\end{LTXexample}
+\vfill
+There are no shorthands for starting and ending the \texttt{equation} environment.
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}
+\frametitle{Text mode vs. Math mode}
+\vfill
+When typing text normally we are in \emph{text mode} -- when typing within a maths environment we are said to be in \emph{math mode}.
+\vfill
+There are some important distinctions between text mode and math mode. When in math mode:
+\vfill
+\begin{itemize}
+	\item Spaces and line breaks do not have any meaning. Explicit spaces are either derived from the mathematical expression or specified manually
+	\item Empty lines are not allowed.
+	\item All text is considered to be variable names, and so each letter is typeset as a mathematical variable. To use `normal' text within math mode, special commands must be used.
+\end{itemize}
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Symbols}
+\vfill
+The basic mathematical symbols that can be entered from the keyboard can be used in math mode:
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		$ + - = ! / ( ) [ ] < > | ' : $
+	\end{LTXexample}
+\vfill
+For other symbols, you will need to know the specific \LaTeX\ command required.
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Greek Letters}
+\vfill
+Greek Letters are easy to type in math mode - you only need to type the name of the letter required. If the first letter of the name is uppercase, the symbol will be uppercase. If the first letter is lowercase, the symbol will be lowercase.
+\vfill
+\begin{center}
+\begin{tabular}{r | l}
+	Command & Character \\
+	\hline
+	\texttt{{\textbackslash}alpha} & $\alpha$ \\
+	\texttt{{\textbackslash}beta} & $\beta$ \\
+	\texttt{{\textbackslash}gamma} & $\gamma$ \\
+	\texttt{{\textbackslash}Gamma} & $\Gamma$ \\
+	\texttt{{\textbackslash}pi} & $\pi$ \\
+	\texttt{{\textbackslash}Pi} & $\Pi$ \\
+	\texttt{{\textbackslash}phi} & $\phi$ \\
+	\texttt{{\textbackslash}Phi} & $\Phi$ \\
+	\ldots & \ldots \\				
+\end{tabular}
+\end{center}
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Greek Letters - variants}
+\vfill
+Some Greek letters (lowercase epsilon, theta, phi, pi, rho and sigma) have variants, accessed by adding `var' before the letter name.
+\vfill
+\begin{center}
+\begin{tabular}{r | l}
+	Command & Character \\
+	\hline
+	\texttt{{\textbackslash}epsilon} & $\epsilon$ \\
+	\texttt{{\textbackslash}varepsilon} & $\varepsilon$ \\
+	\texttt{{\textbackslash}theta} & $\theta$ \\
+	\texttt{{\textbackslash}vartheta} & $\vartheta$ \\
+	\texttt{{\textbackslash}phi} & $\phi$ \\
+	\texttt{{\textbackslash}varphi} & $\varphi$ \\
+	\texttt{{\textbackslash}pi} & $\pi$ \\
+	\texttt{{\textbackslash}varpi} & $\varpi$ \\
+	\texttt{{\textbackslash}rho} & $\rho$ \\
+	\texttt{{\textbackslash}varrho} & $\varrho$ \\
+	\texttt{{\textbackslash}sigma} & $\sigma$ \\
+	\texttt{{\textbackslash}varsigma} & $\varsigma$ \\			
+\end{tabular}
+\end{center}
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Powers and Indices}
+\vfill
+To raise something in math mode (to represent a power for instance), the \texttt{\^} (caret) character is used:
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		\[ k^2 + j^{2n} - r^{k^6} \]
+	\end{LTXexample}
+\vfill
+To add an index, an underscore (\_) is used:
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		\[ i_k + j_{2n} - r_{k_6} \]
+	\end{LTXexample}
+\vfill
+When multiple terms are raised or lowered they are grouped with \{\}.
+\vfill
+\end{frame}
+
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Operators}
+\vfill
+\LaTeX\ includes many commands defining operators (functions written as words):
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		\[ \sin (2\theta) \]
+	\end{LTXexample}
+\vfill
+\LaTeX will automatically place subscripts under the operator if required:
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		\[ \lim_{x \to \infty} \exp(-x) = 0 \]
+	\end{LTXexample}
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Roots}
+\vfill
+Square roots can be displayed using \texttt{{\textbackslash}sqrt}. The $n^{th}$ root can be shown using \texttt{{\textbackslash}sqrt[n]}. \LaTeX\ will determine the size of the root automatically. Again, to include multiple terms within the root, group them together with \{\}.
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		\[ \sqrt{2} \] 
+		\[ \sqrt{x^2 + y} \] 
+		\[ \sqrt[4]{6x - 3y} \]
+	\end{LTXexample}
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Fractions}
+\vfill
+The \texttt{{\textbackslash}frac\{numerator\}\{denominator\}} command allows for including fractions in your equations. 
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		\[ \frac{n!}{k!(n-k)!} \]
+	\end{LTXexample}
+\vfill
+Fractions can be embedded inside other fractions:
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		\[ \frac{\frac{1}{x} + \frac{1}{y}}{y-z} \]
+	\end{LTXexample}
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Simple Fractions}
+\vfill
+For simple fractions it may be easier or nicer to use subscripts and superscripts to create a fraction:
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		\[ ^4/_9 \]
+	\end{LTXexample}
+\vfill
+The \texttt{xfrac} package provides the \texttt{{\textbackslash}sfrac} command to create slanted fractions like this:
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		\[ \sfrac{1}{x} \]
+	\end{LTXexample}
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Sums}
+\vfill
+Sums are typeset using the \texttt{{\textbackslash}sum} command:
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		\[ \sum_{i=1}^{10} z_i \]
+	\end{LTXexample}
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Integrals}
+\vfill
+Integrals are typeset using the \texttt{{\textbackslash}int} command:
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		\[ \int_0^\infty \]
+	\end{LTXexample}
+\vfill
+Integration variables are shown with a normal upright d (obtained with the \texttt{{\textbackslash}mathrm} command), along with a small space (obtained with the \texttt{{\textbackslash},} command).
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		\[ \int_0^\infty x^2\,\mathrm{d}x\]
+	\end{LTXexample}
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Other ``big'' symbols}
+\vfill
+There are many other commands that act similarly to \texttt{{\textbackslash}sum} and \texttt{{\textbackslash}int}:
+\vfill
+\begin{center}
+\begin{tabular}{r | l | r | l | r | l}
+	\texttt{{\textbackslash}sum} & $\sum$ & \texttt{{\textbackslash}prod} & $\prod$ & \texttt{{\textbackslash}coprod} & $\coprod$ \\
+	\texttt{{\textbackslash}bigoplus} & $\bigoplus$ & \texttt{{\textbackslash}bigotimes} & $\bigotimes$ & \texttt{{\textbackslash}bigodot} & $\bigodot$  \\
+	\texttt{{\textbackslash}bigcup} & $\bigcup$ & \texttt{{\textbackslash}bigcap} & $\bigcap$ & \texttt{{\textbackslash}biguplus} & $\biguplus$  \\
+	\texttt{{\textbackslash}bigsqcup} & $\bigsqcup$ & \texttt{{\textbackslash}bigvee} & $\bigvee$ & \texttt{{\textbackslash}bigwedge} & $\bigwedge$  \\
+	\texttt{{\textbackslash}int} & $\int$ & \texttt{{\textbackslash}oint} & $\oint$ & \texttt{{\textbackslash}iint} & $\iint$  \\
+	\texttt{{\textbackslash}iiint} & $\iiint$ & \texttt{{\textbackslash}iiiint} & $\iiiint$ & \texttt{{\textbackslash}idotsint} & $\idotsint$  \\
+\end{tabular}
+\end{center}
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Brackets, braces and delimiters}
+\vfill
+There are many delimiters and brackets available in \LaTeX:
+\vfill
+\begin{center}
+\begin{tabular}{r | l | r | l }
+	\texttt{( a )} & $( a )$ & \texttt{[ b ]} & $[b]$ \\
+	\texttt{\{ c \}} & $\{c\}$ & \texttt{| d |} & $|d|$ \\
+	\texttt{{\textbackslash}| e {\textbackslash}|} & $\| e \|$ & \texttt{{\textbackslash}langle f {\textbackslash}rangle} & $\langle f \rangle$ \\
+	\texttt{{\textbackslash}lfloor g {\textbackslash}rfloor} & $\lfloor g \rfloor$ & \texttt{{\textbackslash}lceil h {\textbackslash}rceil} & $\lceil h \rceil$ \\
+	\texttt{{\textbackslash}ulcorner i {\textbackslash}urcorner} & $\ulcorner e \urcorner$ &  & \\
+
+\end{tabular}
+\end{center}
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Automatic sizing}
+\vfill
+Very often the size of parts of an equation will need to change; \LaTeX\ provides the \texttt{{\textbackslash}left}, \texttt{{\textbackslash}right} and \texttt{{\textbackslash}middle} commands to do just this:
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		\[ \left(\frac{x^2}{y^3}\right) \]
+	\end{LTXexample}
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		\[ \left\{\frac{x^2}{y^3}\right\} \]
+	\end{LTXexample}
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Manual sizing}
+\vfill
+If you want manual control over the sizing, you can use the \texttt{{\textbackslash}big}, \texttt{{\textbackslash}Big}, \texttt{{\textbackslash}bigg}, and \texttt{{\textbackslash}Bigg} commands.
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		\[ ( \big( \Big( \bigg( \Bigg( \]
+	\end{LTXexample}
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Simple Matrices}
+\vfill
+The \texttt{{\textbackslash}matrix} environment allows simple matrices to be displayed. The syntax is very similar to the syntax used to create tables:
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		\[ \begin{matrix}
+		   a & b & c \\
+		   d & e & f \\
+		   g & h & i 
+		\end{matrix} \]
+	\end{LTXexample}
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Matrices}
+\vfill
+Matrices usually have some form of delimiter. We could add these using the \texttt{{\textbackslash}left} and\texttt{{\textbackslash}right} commands, there are predefined environments including delimiters:
+\vfill
+\begin{center}
+\begin{tabular}{r | l | }
+	\texttt{pmatrix} & $(\quad )$ \\
+	\texttt{bmatrix} & $[\quad ]$  \\
+	\texttt{Bmatrix} & $\{\quad \}$  \\
+	\texttt{vmatrix} & $|\quad |$  \\
+	\texttt{Vmatrix} & $||\quad ||$ 
+\end{tabular}
+\end{center}
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Matrices}
+\vfill
+To fill columns and rows of a matrix with dots, use the \texttt{{\textbackslash}cdots}, \texttt{{\textbackslash}vdots} and \texttt{{\textbackslash}ddots} commands:
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		\begin{equation}
+		 \begin{pmatrix}
+		   a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
+		   a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+		   \vdots & \vdots & \ddots & \vdots \\
+		   a_{m,1} & a_{m,2} & \cdots & a_{m,n}
+		\end{pmatrix}
+		\end{equation}
+	\end{LTXexample}
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Text in equations}
+\vfill
+As previously mentioned, \LaTeX\ will treat all text within math mode as part of an equation, and typeset each letter as if it were a variable. The \texttt{\textbackslash{text}} command allows you to enter text within math mode:
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		\[ 50 \text{ apples}  \]
+	\end{LTXexample}
+\vfill
+Similarly, the text formatting commands introduced previously can be used:
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		\[ 50 \textbf{ apples} + 30 \textrm{ pears} \]
+	\end{LTXexample}
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Spacing in math mode}
+\vfill
+There are multiple commands for inserting spaces in equations, they each insert a slightly different amount of space:
+\vfill
+\begin{center}
+\begin{tabular}{r | l | }
+	\texttt{{\textbackslash},} & $(\,)$ \\
+	\texttt{{\textbackslash}:} & $(\:)$ \\
+	\texttt{{\textbackslash};} & $(\;)$ \\
+	\texttt{{\textbackslash} } & $(\ )$ \\
+	\texttt{{\textbackslash}quad} & $(\quad)$ \\
+	\texttt{{\textbackslash}qquad} & $(\qquad)$ \\
+\end{tabular}
+\end{center}
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Math fonts}
+\vfill
+Using the \texttt{amsfonts} package provides access to a number of fonts for formatting text within mathematical equations:
+\vfill
+\begin{center}
+\begin{tabular}{r | l | }
+	\texttt{{\textbackslash}mathnormal} & $\mathnormal{ABCDEFabcdef123456}$ \\
+	\texttt{{\textbackslash}mathrm} & $\mathrm{ABCDEFabcdef123456}$ \\
+	\texttt{{\textbackslash}mathit} & $\mathit{ABCDEFabcdef123456}$ \\
+	\texttt{{\textbackslash}mathbf} & $\mathbf{ABCDEFabcdef123456}$ \\
+	\texttt{{\textbackslash}mathsf} & $\mathsf{ABCDEFabcdef123456}$ \\
+	\texttt{{\textbackslash}mathtt} & $\mathtt{ABCDEFabcdef123456}$ \\
+	\texttt{{\textbackslash}mathcal} & $\mathcal{ABCDEFabcdef123456}$ \\
+	\texttt{{\textbackslash}mathfrak} & $\mathfrak{ABCDEFabcdef123456}$ \\
+	\texttt{{\textbackslash}mathbb} & $\mathbb{ABCDEFabcdef123456}$ \\		
+\end{tabular}
+\end{center}
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Equation Numbering}
+\vfill
+As already discussed, the \texttt{equation} environment automatically numbers your equations. We can also label them with the \texttt{{\textbackslash}label} command so that we can refer to them in text later.
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		\begin{equation}
+		\label{eq:myequation}
+		    f(x) = (x+a)(x+b)
+		\end{equation}
+		We can refer to our equation~\ref{eq:myequation}, or even use~\eqref{eq:myequation} to get a different style of reference.
+	\end{LTXexample}
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Cases}
+\vfill
+The \texttt{cases} environment allows piecewise functions:
+\vfill
+	\begin{LTXexample}[style=latexsty]
+		\begin{equation}
+		    |x| = 
+		    \begin{cases}
+		        -x & \text{if}\ x < 0, \\
+		        0 & \text{if}\ x = 0, \\
+		        x & \text{if}\ x > 0.
+		    \end{cases}
+		\end{equation}
+	\end{LTXexample}
+\vfill
+\end{frame}
+
+%--------------- slide -------------------
+\begin{frame}[fragile]
+\frametitle{Maths in \LaTeX}
+\vfill
+This is only the basics of what can be accomplished with \LaTeX\ when working with mathematical equations.
+\vfill
+There are many more packages that can be useful for this type of scientific work. Just some are:
+\vfill
+\begin{center}
+\begin{tabular}{r | p{0.6\textwidth} | }
+	\texttt{IEEEtrantools} & includes the \texttt{{\textbackslash}IEEEeqnarray} command for aligning equations nicely\\
+	\texttt{mathtools} & includes \texttt{amsmath} and adds extra settings, symbols and environments \\		
+	\texttt{mchem} & for typesetting chemical symbols and equations \\		
+\end{tabular}
+\end{center}
+\vfill
+\end{frame}
+
+
+%--------------- slide -------------------
+\begin{frame}
+\frametitle{Exercise 5}
+
+\begin{center}
+\vfill
+Use the mathematics formatting commands you've learnt to practice typesetting equations
+\vfill
+\end{center}
+\end{frame}
+
+\end{document}

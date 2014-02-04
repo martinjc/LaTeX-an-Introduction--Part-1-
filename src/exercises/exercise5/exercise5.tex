@@ -1,0 +1,114 @@
+\documentclass[11pt]{exam}
+
+\usepackage{listings}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{xfrac}
+\usepackage[T1]{fontenc}
+
+
+\lstdefinestyle{latexsty}{
+	language={[LaTeX]TeX},
+    basicstyle=\small\ttfamily,
+    breaklines=true,
+    breakindent=0pt, 
+    numbers=left, stepnumber=1, numbersep=5pt,
+    commentstyle=\color{red},
+    showstringspaces=false,
+    keywordstyle=\color{blue}\bfseries,
+    morekeywords={align,begin},
+    tabsize=2,
+    frame=single,
+}
+
+\pagestyle{headandfoot}
+\runningheader{\LaTeX: An Introduction (Part 1)}{Exercise 5}{10th February 201
+4}
+\runningheadrule
+\runningfooter{}{\thepage}{}
+\runningfootrule
+
+\title{Exercise 5 - Maths in \LaTeX}
+\author{UGC `\LaTeX: An Introduction (Part 1)' Training Course}
+\date{February 10th 2014}
+
+\begin{document}
+\maketitle
+
+\fbox{\parbox{0.9\textwidth}{In this exercise, we will practice inserting maths into our documents. Again, you can use a separate new document, or continue adding content to the document you used in the previous exercises. Remember to add the \texttt{amsmath} package to your document using the \texttt{{\textbackslash}usepackage} command}}
+
+\vspace{0.1in}
+
+
+\begin{questions}
+
+\uplevel{}
+
+\question
+Add a few lines of text to your document. Within this text, use the \texttt{math} environment to typeset the following equation inline.
+
+\begin{equation*}
+	(a + b)(a + b) = a^2 + 2ab + b^2
+\end{equation*}
+
+\uplevel{Your result should look like this:
+
+\vspace{0.1in}
+\fbox{\parbox{\textwidth}{Some text that I am typing just so I can include this equation: \( (a + b)(a + b) = a^2 + 2ab + b^2 \) which I have now done.}}}
+
+\question
+Swap the \texttt{math} environment \texttt{begin} and \texttt{end} for \texttt{\textbackslash(} and \texttt{\textbackslash)}. Does it make a difference to the output? What if you use \$ \ldots \$ instead? 
+
+
+\question
+Use the \texttt{equation} environment to add the following equations to your document:
+
+
+\[
+a^3 + 6b - 12
+\]
+
+\[
+\cos (2\theta) = \cos^2 \theta - \sin^2 \theta
+\]
+
+\[
+\lim_{x \to \infty} \exp(-x) = 0
+\]
+
+\[
+k_{n+1} = n^2 + k_n^2 - k_{n-1}
+\]
+
+\[
+\frac{n!}{k!(n-k)!} 
+\]
+
+\[
+\frac{\frac{1}{x}+\frac{1}{y}}{y-z}
+\]
+
+\[
+3\times\sfrac{1}{2}=1\sfrac{1}{2}
+\]
+
+\[
+\left|\sum_{i=1}^n a_ib_i\right|
+\]
+
+\[
+\left(\sum_{i=1}^n b_i^2\right)^{1/2}
+\]
+
+%\question
+%Add a label to one of the equations in your document, and reference it from within the text.
+
+\question
+Experiment with adding equations from your own research background. 
+
+\end{questions}
+
+\end{document}

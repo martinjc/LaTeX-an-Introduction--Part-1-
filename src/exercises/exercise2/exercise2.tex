@@ -1,0 +1,92 @@
+\documentclass[11pt]{exam}
+
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{color}
+
+
+\lstdefinestyle{latexsty}{
+	language={[LaTeX]TeX},
+    basicstyle=\small\ttfamily,
+    breaklines=true,
+    breakindent=0pt, 
+    numbers=left, stepnumber=1, numbersep=5pt,
+    commentstyle=\color{red},
+    showstringspaces=false,
+    keywordstyle=\color{blue}\bfseries,
+    morekeywords={align,begin},
+    tabsize=2,
+    frame=single,
+}
+
+\pagestyle{headandfoot}
+\runningheader{\LaTeX: An Introduction (Part 1)}{Exercise 2}{10th February 2014}
+\runningheadrule
+\runningfooter{}{\thepage}{}
+\runningfootrule
+
+\title{Exercise 2 - Creating Structured \LaTeX\ Documents}
+\author{UGC `\LaTeX: An Introduction (Part 1)' Training Course}
+\date{February 10th 2014}
+
+\begin{document}
+\maketitle
+
+\fbox{\parbox{0.9\textwidth}{In this exercise, we will start to create larger structured documents with \LaTeX. If you have some work you can use for the content of this document (perhaps a year-end report or similar) then feel free to use it. If not, don't worry, there's a solution below!}}
+
+\vspace{0.2in}
+
+\begin{questions}
+
+\question
+If it's not already open, open TeXworks. Create a new file for this exercise and save it somewhere appropriate. 
+\question
+Create a document with the document class \texttt{article}. Enter the `top matter' for your document (the \texttt{title}, \texttt{author} and \texttt{date}). You can pick any title you'd like.
+\question
+Make \LaTeX\ create a title section with the \texttt{{\textbackslash}maketitle} command. Compile and view your document to see how it looks.
+\uplevel{(From here on you should compile and view your document as you go along to see how the changes you make in the \LaTeX\ file are reflected in the output.)}
+\question
+Add an abstract as the first part of your document after the title with the \texttt{abstract} environment.
+\uplevel{We are now ready to start adding content. If you have some content, feel free to use it (don't worry, if it doesn't make sense, we're just practicing using \LaTeX, nobody will be reading this later!) If not, the \texttt{lipsum} package provides a method of adding `sample' text to documents. Include \texttt{{\textbackslash}usepackage\{lipsum\}} in the preamble of your document, then use the \texttt{{\textbackslash}lipsum} command to insert paragraphs of text. An optional parameter will tell \texttt{lipsum} which paragraphs of text to add, so \texttt{{\textbackslash}lipsum[4-5]} will add the 4\textsuperscript{th} and 5\textsuperscript{th} paragraphs of Lorem Ipsum text.}
+
+\uplevel{Your code may now look something like this:}
+
+\begin{lstlisting}[style=latexsty]
+	\documentclass{article}
+	
+	\usepackage{lipsum}
+	
+	\title{A title}
+	\author{Me}
+	\date{}
+	
+	\begin{document}
+		
+		\maketitle
+		
+		\begin{abstract}
+		    \lipsum[3-4]
+		\end{abstract}
+		
+	\end{document}
+\end{lstlisting}
+
+
+\question
+Add some sections and subsections to your document, and add text to these sections and subsections.
+
+\question
+Practice changing the font size and style of parts of your text.
+
+\question
+Change your document to use a different line spacing. Try using double line spacing, or one and a half line spacing.
+
+\question
+Change the document class options to increase the font size to 12pt.
+
+\question
+Change other document class options. What is the difference between \texttt{oneside} and \texttt{twoside}. Can you make your article have two columns instead of one? What if you use the option \texttt{titlepage}?
+
+\end{questions}
+
+\end{document}

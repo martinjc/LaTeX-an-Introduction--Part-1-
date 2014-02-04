@@ -1,0 +1,58 @@
+\documentclass[11pt]{exam}
+
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{color}
+
+
+\lstdefinestyle{latexsty}{
+	language={[LaTeX]TeX},
+    basicstyle=\small\ttfamily,
+    breaklines=true,
+    breakindent=0pt, 
+    numbers=left, stepnumber=1, numbersep=5pt,
+    commentstyle=\color{red},
+    showstringspaces=false,
+    keywordstyle=\color{blue}\bfseries,
+    morekeywords={align,begin},
+    tabsize=2,
+    frame=single,
+}
+
+\pagestyle{headandfoot}
+\runningheader{\LaTeX: An Introduction (Part 1)}{Exercise 4}{10th February 2014}
+\runningheadrule
+\runningfooter{}{\thepage}{}
+\runningfootrule
+
+\title{Exercise 4 - Including Graphics}
+\author{UGC `\LaTeX: An Introduction (Part 1)' Training Course}
+\date{February 10th 2014}
+
+
+\begin{document}
+\maketitle
+
+\fbox{\parbox{0.9\textwidth}{In this exercise, we will start to include graphics in our \LaTeX\ documents.}}
+
+\vspace{0.2in}
+
+\begin{questions}
+
+\question
+If it's not already open, open TeXworks. Either create a new file for this exercise and save it somewhere appropriate, or open an existing file.
+\question
+Find a picture somewhere that you would like to include in your document. Google image search is a good place to start looking.
+\question
+Save the picture in the same folder as your \LaTeX\ document.
+\question
+Add the \texttt{graphicx} package to your document and use the \texttt{{\textbackslash}includegraphics} command to include the image you just saved in your document.
+\question
+Repeat the process and add another image to your document
+\question
+Experiment with the different image sizing, scaling, cropping and rotating options. Can you scale an image up and down? Can you set an image to be a quarter of the width of your document? When you rotate an image, does it rotate clockwise or anti-clockwise? Can you trim the edges of an image so they do not appear?
+\question
+Experiment with placing boxes around your images. Change the distance between the image and the border, and the thickness of the border.
+\end{questions}
+
+\end{document}

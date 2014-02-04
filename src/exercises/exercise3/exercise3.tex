@@ -1,0 +1,170 @@
+\documentclass[11pt]{exam}
+
+\usepackage{listings}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{multirow}
+
+
+\lstdefinestyle{latexsty}{
+	language={[LaTeX]TeX},
+    basicstyle=\small\ttfamily,
+    breaklines=true,
+    breakindent=0pt, 
+    numbers=left, stepnumber=1, numbersep=5pt,
+    commentstyle=\color{red},
+    showstringspaces=false,
+    keywordstyle=\color{blue}\bfseries,
+    morekeywords={align,begin},
+    tabsize=2,
+    frame=single,
+}
+
+\pagestyle{headandfoot}
+\runningheader{\LaTeX: An Introduction (Part 1)}{Exercise 3}{10th February 2014}
+\runningheadrule
+\runningfooter{}{\thepage}{}
+\runningfootrule
+
+\title{Exercise 3 - Lists and Tables in \LaTeX}
+\author{UGC `\LaTeX: An Introduction (Part 1)' Training Course}
+\date{February 10th 2014}
+
+\begin{document}
+\maketitle
+
+\fbox{\parbox{0.9\textwidth}{In this exercise, we will practice making lists and tables. You can do it in a separate document, or continue adding content to the document you used in the last exercise.}}
+
+\vspace{0.2in}
+
+\section{Lists}
+
+\begin{questions}
+
+\question
+Add a simple list that looks like the one below to your document.
+
+\begin{itemize}
+	\item A list item
+	\item Another list item
+	\item Yet another list item
+\end{itemize}
+
+
+\question
+Can you change the list you just made so that the items are numbered? How?
+
+\question
+Try creating a description list like the one below. Again, the text you use doesn't particularly matter.
+
+\vspace{0.1in}
+\begin{minipage}[ht!]{0.4\textwidth}
+\begin{description}
+	\item[First Paragraph] Some text about something, I'm not sure what
+	\item[Second Paragraph] Some more text about something else that is different?
+	\item[Third Paragraph] This isn't the same as the previous items
+\end{description}
+\end{minipage}
+
+\question
+Create a nested list. Can you nest lists of different type within each other?
+
+\end{questions}
+
+\section{Tables}
+
+\begin{questions}
+
+\question Make a simple table like the one below:
+
+\begin{center}
+\begin{tabular}{l | l | l}
+    a & b & c \\
+    d & e & f \\
+    g & h & i \\
+    j & k & l \\
+\end{tabular}
+\end{center}
+
+\question Add a header row to your table so it looks like this:
+
+\begin{center}
+\begin{tabular}{l | l | l}
+	1 & 2 & 3 \\
+	\hline
+    a & b & c \\
+    d & e & f \\
+    g & h & i \\
+    j & k & l \\
+\end{tabular}
+\end{center}
+
+\question
+Create a table like the one below where the text in one of the columns is too large to fit on the page without wrapping:
+
+\begin{center}
+    \begin{tabular}{ | r | l | l | p{6cm} |}
+    \hline
+   	Number & Player & Position & Summary \\ \hline
+	1 & Chris Weale & Goalkeeper & Experienced goalkeeper who moved to the Greenhous Meadow in July 2012 after three seasons at Championship club Leicester City. \\ \hline
+	2 & Jermaine Grandison & Defender & The powerful defender, equally comfortable at right back or centre half, joined the club from Coventry City, initially on loan in January 2011, impressing enough to be offered a permanent deal.\\ \hline
+	7 & Mark Wright & Midfielder & The Wolverhampton-born winger has emerged as a consistent goalscorer since joining Shrewsbury, registering double figures from out wide in each of his first two seasons at the Greenhous Meadow.\\ \hline
+    \end{tabular}
+\end{center}
+
+\question
+Create a table with a heading cell that spans multiple columns as below:
+
+\begin{center}
+\begin{tabular}{ |l|l| }
+  \hline
+  \multicolumn{2}{|c|}{Team sheet} \\
+  \hline
+  GK & Chris Weale \\
+  DF & Jermaine Grandison \\
+  DF & Joe Jacobson \\
+  DF & Connor Goldson \\
+  DF & Cameron Gayle \\
+  MF & Mark Wright \\
+  MF & Paul Parry \\
+  MF & Aaron Wildig \\
+  MF & Matt Richards \\
+  ST & Marvin Morgan \\
+  ST & Ryan Doble \\
+  \hline
+\end{tabular}
+\end{center}
+\clearpage
+
+\question 
+Create a complex table like the one below where some cells stretch over multiple columns and some stretch over multiple rows. (\emph{Hint - remember the \texttt{multirow} package})
+\begin{center}
+\begin{tabular}{ |l|l|l| }
+\hline
+\multicolumn{3}{ |c| }{Team sheet} \\
+\hline
+Goalkeeper & GK & Chris Weale \\ \hline
+\multirow{4}{*}{Defenders} & LB & Jermaine Grandison \\
+ & DC & Joe Jacobson \\
+ & DC & Connor Goldson \\
+ & RB & Cameron Gayle \\ \hline
+\multirow{3}{*}{Midfielders} & MC & Mark Wright \\
+ & MC & Paul Parry \\
+ & MC & Aaron Wildig \\ \hline
+Forward & FW & Matt Richards \\ \hline
+\multirow{2}{*}{Strikers} & ST & Marvin Morgan \\
+ & ST & Ryan Doble \\
+\hline
+\end{tabular}
+\end{center}
+
+%\question 
+%Wrap one of your tables in a \texttt{table} environment. Add a label and a caption to it. Can you then refer to that table in the text with a cross reference?
+
+%\question
+%Experiment with the position specifier on the \texttt{table} environment to see how \LaTeX\ positions your floating table.
+
+\end{questions}
+
+\end{document}
