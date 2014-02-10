@@ -1,6 +1,10 @@
 \documentclass[12pt,twoside,a4paper]{article}
 \usepackage{lipsum}
 \usepackage{setspace}
+\usepackage{multirow}
+\usepackage{tabularx}
+
+\setlength{\parindent}{0pt}
 
 \title{A Test \LaTeX\ Document}
 \author{Martin Chorley}
@@ -61,6 +65,10 @@ This is not a new paragraph.
 
 \section{Tables}
 
+Some tables
+
+\vspace{0.2in}
+
 \begin{tabular}{| r | c |}
 \hline
 first cell & second column \\
@@ -69,8 +77,16 @@ second row & last cell \\
 \hline
 \end{tabular}
 
-Space!
+\vspace{0.2in}
 
 \begin{tabular}{ | r | l | }    \hline    \multicolumn{2}{|c|}{Table Heading} \\    \hline    some text & other text \\this text & more text \\    \hline\end{tabular}
+
+\vspace{0.2in}
+
+\begin{tabular}{ | r | c | l | }    \hline    \multicolumn{3}{|c|}{Table Heading} \\\hline    \multirow{2}{*}{this text} & some text & other text \\     & more text & other more text \\    \hline\end{tabular}
+
+\vspace{0.2in}
+
+\begin{tabularx}{\textwidth}{ | X | X | X | }    \hline    \multicolumn{3}{|c|}{Table Heading} \\\hline    \multirow{2}{*}{this text} & some text & other text \\     & more text & other more text \\    \hline\end{tabularx}
 
 \end{document}
